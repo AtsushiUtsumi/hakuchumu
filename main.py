@@ -47,6 +47,7 @@ for i in input_elements:
     input_type = i.get_attribute("type")
     # idはなくても入力できるがログに出力できないためidは必須か
     out(f'id="{i.get_attribute("id")}" type="{input_type}"')
+    out(f'id="{i.get_attribute("id")}" type="{input_type}"')
     if input_type == 'hidden' or input_type == 'file':
         continue
     # ランダムな値を入力
