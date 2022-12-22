@@ -3,13 +3,14 @@
 # 1.chromedriver.exe
 # 2.pip install chromedriver-binary
 
+from driver import get_driver
 import random
 import os
 import codecs
 from time import sleep
-from selenium import webdriver
+# from selenium import webdriver
 from selenium.webdriver.common.by import By
-import chromedriver_binary
+#import chromedriver_binary
 
 outputfile_name = 'output.txt'
 
@@ -31,9 +32,9 @@ def create_setter(id):
         return
     return setter
 
-options = webdriver.ChromeOptions()
+#options = webdriver.ChromeOptions()
 # options.add_argument("--headless")# ヘッドレスで起動するオプションを指定
-driver = webdriver.Chrome(options=options)
+driver = get_driver()#webdriver.Chrome(executable_path='/home/atsushi/Documents/GitRepos/chromedriver', options=options)
 driver.get('file:///' + os.getcwd() + '/index.html')
 
 # 基本は DFS で掘っていく
