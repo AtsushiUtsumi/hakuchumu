@@ -35,3 +35,11 @@ def create_test_code_file(input_sequence, check_output):
 create_test_code_file('', '')
 
 import auto#これで実行はあまりにダサいがひとまずこれで...
+
+# 実行コード実行結果からテストコードを生成するのが目的では?
+# なので仮にサーバサイド未実装でhtmlだけのアプリがあった場合
+# でもhakuchumuは動作しなければならないハズ
+# もちろんその場合hakuchumuとしては「何の動作もしない」という事を出力しなければならない
+# 現時点でhakuchumu自体のテストにはhtmlのみでOKといううことになる
+
+# セッタに関しては人力が必要になるとは思うが、それでも自動生成機能は有った方が良い
