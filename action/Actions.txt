@@ -1,0 +1,3 @@
+Input SerialNo 000000
+Input SerialNo 123456
+Input SerialNo 999999
