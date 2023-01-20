@@ -3,8 +3,12 @@ import os
 import json
 from sample_value_for_type import get_sample_value_for_type
 from driver import get_driver
+
 driver = get_driver()
-driver.get('file:///' + os.getcwd() + '/index.html')
+
+target_url = 'file:///' + os.getcwd() + '/index.html'
+
+driver.get(target_url)
 import codecs
 from selenium.webdriver.common.by import By
 
