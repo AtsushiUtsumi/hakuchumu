@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
-from settings import settings
+from settings import Settings
 import os
-
 class Route:
     url = ''
     url_dir = ''
     def __init__(self, url:str):
-        self.url_dir = settings.hakuchumu_dir
+        self.url_dir = Settings.hakuchumu_dir
         self.url = url
         return
     
