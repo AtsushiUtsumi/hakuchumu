@@ -11,7 +11,34 @@ def footprint(id: int, url: str):
     os.chdir('..')
     return
 
-def create_code_per_url():
+# URLからディレクトリのパスを返す(無ければ作成する)
+def get_dir_by_url(url: str) -> str:
+    id = 1
+    while os.path.isdir(f'{id}'):
+        id += 1
+    dir = str(id)
+    os.mkdir(dir)
+    return dir
+
+
+from create_setter_code import create_setter_code_per_url
+from create_action_code import create_action_code_per_url
+# 与えられたURL用の出力ディレクトリを作成、中にそのURL内で有効なセッタ、アクションを「.py」で出力する
+def create_code_per_url(url: str):
+    dir = get_dir_by_url(url)
+    print('[' + dir + ']に対してのコード生成')
+    os.chdir(dir)
+    url_file = open('url.txt', 'w')
+    url_file.write(url)
+    # セッタファイル生成処理
+    create_setter_code_per_url(url)
+    # アクションファイル生成処理
+    create_action_code_per_url(url)
+    os.chdir('..')#hakushuホームに戻るのが良いかも
+    return
+
+# urlリストの中の全てのURLに対して処理を実行
+def create_code_all_url():
     hakuchumu_dir = './.hakuchumu'
     os.chdir(hakuchumu_dir)
     url_file = open('url_list.txt', 'r')
@@ -32,4 +59,9 @@ def create_code_per_url():
     return
 
 # 動作確確認
-create_code_per_url()
+# create_code_per_url('https://github.com/AtsushiUtsumi?tab=repositories')
+
+
+
+def hoge():
+    print('import出来た' + os.getcwd())
