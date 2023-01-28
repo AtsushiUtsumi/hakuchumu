@@ -5,4 +5,5 @@ chromedriver
 output.txt
 auto.py
 setter_code.py
+action_code.py
 *.json

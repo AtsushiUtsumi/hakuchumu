@@ -10,8 +10,8 @@ def append_setter(file, id: str):
     file.write(f"\t\telement.send_keys(value)\n")
     return
 
-def create_setter_code_file(id_list: list[str]):
-    #file = open('setter_code.py', 'w', encoding='utf8')
+def create_setter_code_file():
+    file = open('setter_code.py', 'w', encoding='utf8')
     file.write("# -*- coding: utf-8 -*-\n")
     file.write("# このファイルはcreate_setter_code.pyによって生成されました\n")
     file.write("#でも結局このファイルは1回しか生成しないし、人間の行動(入力に限らず)リストを生成した方が良いような気がするんだよなぁ\n\n")
@@ -30,5 +30,5 @@ def create_setter_code_file(id_list: list[str]):
 
 def create_setter_code_per_url(url: str):
     print(url + 'に対してのセッタコードを出力します')
-    #create_setter_code_file()
+    create_setter_code_file()
     return
