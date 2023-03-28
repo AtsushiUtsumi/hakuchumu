@@ -76,7 +76,8 @@ def create_dict_from_url(url: str) -> dict[object]:
         if input_type == 'hidden' or input_type == 'file':
             continue
         input_id = input_element.get_attribute("id")
-        x[input_id] = {'id': input_id, 'type': input_type}
+        # 今はclassにすべて「SlipNo」を指定しておく。サンプル値にどのセットを使うかはここで決める
+        x[input_id] = {'id': input_id, 'type': input_type, 'class': 'SlipNo'}
     driver.quit()
     return x
 x = create_dict_from_url('file:///' + os.getcwd() + '/index.html')
