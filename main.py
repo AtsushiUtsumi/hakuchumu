@@ -47,8 +47,8 @@ input_elements = driver.find_elements(By.TAG_NAME, "input")
 for i in input_elements:
     input_type = i.get_attribute("type")
     # idはなくても入力できるがログに出力できないためidは必須か
-    out(f'id="{i.get_attribute("id")}" type="{input_type}"')
-    out(f'id="{i.get_attribute("id")}" type="{input_type}"')
+    #out(f'id="{i.get_attribute("id")}" type="{input_type}"')
+    #out(f'id="{i.get_attribute("id")}" type="{input_type}"')
     if input_type == 'hidden' or input_type == 'file':
         continue
     # ランダムな値を入力
@@ -62,3 +62,22 @@ for i in file.readlines():
     print(i.strip())
 driver.quit()
 
+# 今、入力と出力がごっちゃになっている
+# てか、URLからJSON出すだけでいいんじゃね?
+# ここ、つまりView側で生成したjsonをもとにテストコード出力するのか(おそらくe2eテストコードはこっち)
+# Entity側で生成したjsonをもとにテストコード出力するのか(おそらく単体テストコードはこっち)
+def create_dict_from_url(url: str) -> dict[object]:
+    driver = get_driver()
+    driver.get(url)    
+    input_elements = driver.find_elements(By.TAG_NAME, "input")
+    x = dict()
+    for input_element in input_elements:
+        input_type = input_element.get_attribute("type")        
+        if input_type == 'hidden' or input_type == 'file':
+            continue
+        input_id = input_element.get_attribute("id")
+        x[input_id] = {'id': input_id, 'type': input_type}
+    driver.quit()
+    return x
+x = create_dict_from_url('file:///' + os.getcwd() + '/index.html')
+print(x)
