@@ -59,7 +59,7 @@ def create_code_all_url():
     return
 
 # 動作確確認
-# create_code_per_url('https://github.com/AtsushiUtsumi?tab=repositories')
+create_code_per_url('https://github.com/AtsushiUtsumi?tab=repositories')
 
 
 
