@@ -1,4 +1,5 @@
 # hakuchumu
+WEBアプリケーションのテストコード自動生成ツール
 
 ## 使用用法
 - chromedriverをダウンロード
