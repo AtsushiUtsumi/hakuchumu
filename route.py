@@ -19,12 +19,12 @@ class Route:
     
     def __init__(self, url:str):
         self.url = url
-        os.chdir(Settings.hakuchumu_dir)
+        os.chdir(Settings.hakuchumu_dir_workspace)
         id = 1
         while os.path.isdir(f'{id}'):
             id += 1
         os.mkdir(str(id))
-        self.url_dir = Settings.hakuchumu_dir +'/'+ str(id)
+        self.url_dir = Settings.hakuchumu_dir_workspace +'/'+ str(id)
         return
     
     def show(self):
